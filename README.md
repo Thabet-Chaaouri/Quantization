@@ -2,6 +2,8 @@
 
 ###  GPTQ quantization
 
+GPTQ uses post-training quantization (PTQ) to compress models and achieve smaller sizes with a calibration dataset.
+
 AutoGPTQ library is integrated with transformers to:
 - Quantize transformers
 - Load GPTQ quantized models
@@ -16,3 +18,7 @@ model = AutoModelForCausalLM.from_pretrained(model_id,quantization_config=quanti
 Checkout this [blog](https://huggingface.co/blog/gptq-integration)
 
 ###  Bitsandbytes quantization
+bitsandbytes can do integer quantization but does not require an input mini-batch for quantization. Hence applicable on any model directly.
+
+
+In terms of inference speed, GPTQ generally outperforms bitsandbytes, but bitsandbytes can be faster for fine-tuning.
