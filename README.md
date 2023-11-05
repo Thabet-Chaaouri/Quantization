@@ -13,4 +13,6 @@ quantization_config_loading = GPTQConfig(bits=4, disable_exllama=True)
 model = AutoModelForCausalLM.from_pretrained(model_id,quantization_config=quantization_config_loading, device_map="auto")
 ```
 
+Checkout this [blog](https://huggingface.co/blog/gptq-integration)
+
 ###  Bitsandbytes quantization
