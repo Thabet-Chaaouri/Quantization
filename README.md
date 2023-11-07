@@ -26,6 +26,8 @@ bitsandbytes can do integer quantization but does not require an input mini-batc
 
 ### Comparing bitsandbytes and auto-gptq
 
+Checkout this [blog](https://huggingface.co/blog/overview-quantization-transformers)
+
 Bitsandbytes:
 - It does not require calibrating the quantized model with input data as long as it contains torch.nn.Linear modules. Quantization is performed on model load.
 - merging adapteers on top of the quantized base model with 0 performance degradation. It is poqqible to merge the adapters on top of the dequantized model (This is not supported for GPTQ)
