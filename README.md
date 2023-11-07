@@ -20,6 +20,8 @@ Checkout this [blog](https://huggingface.co/blog/gptq-integration)
 ###  Bitsandbytes quantization
 bitsandbytes can do integer quantization but does not require an input mini-batch for quantization. Hence applicable on any model directly.
 
+[blog](https://huggingface.co/blog/4bit-transformers-bitsandbytes)
+
 
 ### Conclusion
 In terms of inference speed, GPTQ generally outperforms bitsandbytes, but bitsandbytes can be faster for fine-tuning.
