@@ -24,5 +24,20 @@ bitsandbytes can do integer quantization but does not require an input mini-batc
 
 8 bit quantization [blog](https://huggingface.co/blog/hf-bitsandbytes-integration)
 
-### Conclusion
-In terms of inference speed, GPTQ generally outperforms bitsandbytes, but bitsandbytes can be faster for fine-tuning.
+### Comparing bitsandbytes and auto-gptq
+
+Bitsandbytes:
+- It does not require calibrating the quantized model with input data as long as it contains torch.nn.Linear modules. Quantization is performed on model load.
+- merging adapteers on top of the quantized base model with 0 performance degradation. It is poqqible to merge the adapters on top of the dequantized model (This is not supported for GPTQ)
+
+AutoGPTQ:
+- In terms of inference speed, GPTQ generally outperforms bitsandbytes, but bitsandbytes can be faster for fine-tuning.
+- It is possible to quantize models up to 2 bits.
+- supports serialization for any number of bits. Bitsandbytes supports 8-bit serialization but does not support 4-bit serialization as of today
+
+Bitsandbytes is better suited for fine-tuning while GPTQ is better for generation. From this observation, one way to get better merged models would be to:
+- Quantize the base model using bitsandbytes (zero-shot quantization)
+- add and fine-tune the adapters
+- merge the trained adapters on top of the dequantized model
+- quantize the merged model using GPTQ and use it for deployment
+
