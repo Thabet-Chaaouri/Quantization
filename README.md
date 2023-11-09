@@ -24,7 +24,7 @@ bitsandbytes can do integer quantization but does not require an input mini-batc
 
 8 bit quantization [blog](https://huggingface.co/blog/hf-bitsandbytes-integration)
 
-### Comparing bitsandbytes and auto-gptq
+##### Comparing bitsandbytes and auto-gptq
 
 Checkout this [blog](https://huggingface.co/blog/overview-quantization-transformers)
 
