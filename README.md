@@ -24,7 +24,7 @@ bitsandbytes can do integer quantization but does not require an input mini-batc
 
 8 bit quantization [blog](https://huggingface.co/blog/hf-bitsandbytes-integration)
 
-##### Comparing bitsandbytes and auto-gptq
+#### Comparing bitsandbytes and auto-gptq
 
 Checkout this [blog](https://huggingface.co/blog/overview-quantization-transformers)
 
@@ -42,4 +42,15 @@ Bitsandbytes is better suited for fine-tuning while GPTQ is better for generatio
 - add and fine-tune the adapters
 - merge the trained adapters on top of the dequantized model
 - quantize the merged model using GPTQ and use it for deployment
+
+###  AWQ quantization
+
+AWQ quantization, you can look at different existing tools in the ecosystem to quantize their models with AWQ algorithm, such as:
+- [llm-awq](https://github.com/mit-han-lab/llm-awq) from MIT Han Lab
+- [autoawq](https://github.com/casper-hansen/AutoAWQ) from casper-hansen
+
+
+#### Benchmark
+
+Check out this [link](https://huggingface.co/docs/transformers/v4.35.0/main_classes/quantization#quantize--transformers-models) for a detailed speed, throughput and latency benchmarks.
 
